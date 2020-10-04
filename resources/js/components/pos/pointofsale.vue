@@ -75,11 +75,12 @@
                         </select>
 
                         <label>Pay</label>
-                        <input type="text" class="form-control" required="" v-model="pay">
+                        <input type="text" class="form-control" required v-model="pay">
 
-                        <label>Due</label>
-                        <input type="text" class="form-control" required="" v-model="due" >
-
+                        <label>Due</label>                              <!---------"due" dynamic kora hoyeche------------>
+                        <!-- <input type="text" class="form-control" required v-model="due"> -->
+                        <input type="text" class="form-control" required :value="((subtotal*vats.vat /100 +subtotal) - pay).toFixed(2)">
+                        
                         <label>Pay By</label>
                         <select class="form-control" v-model="payby">
                             <option value="HandCash">Hand Cash</option>
@@ -344,7 +345,8 @@
             },
             orderdone(){
                 let total = this.subtotal * this.vats.vat /100 + this.subtotal;
-                var data = {qty:this.qty, subtotal:this.subtotal, customer_id:this.customer_id, payby:this.payby, pay:this.pay, due:this.due, vat:this.vats.vat, total:total}
+                let due = (total - this.pay).toFixed(2)         //variable.toFixed(2)=take 2 specified decimal number
+                var data = {qty:this.qty, subtotal:this.subtotal, customer_id:this.customer_id, payby:this.payby, pay:this.pay, due:due, vat:this.vats.vat, total:total}       //due:this.due //due_dynamic
 
                 axios.post('/api/orderdone/',data)
                 .then(()=>{

@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="csrf-token" content="{{ csrf_token() }}">   <!--this is for 'error free console'/(vue_devTool)-->
-        <title>Admin-Vue_Laravel</title>
+        <title>Admin-Inventory - Vue+Laravel</title>
 
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">   <!--must be linked at the Top of All other CSS_files-->
         <link href="{{ asset('backend/css/styles.css') }}" rel="stylesheet" />

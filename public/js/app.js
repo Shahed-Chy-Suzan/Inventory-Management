@@ -4653,6 +4653,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     if (!User.loggedIn()) {
@@ -4801,16 +4802,19 @@ __webpack_require__.r(__webpack_exports__);
       var _this6 = this;
 
       var total = this.subtotal * this.vats.vat / 100 + this.subtotal;
+      var due = (total - this.pay).toFixed(2); //variable.toFixed(2)=take 2 specified decimal number
+
       var data = {
         qty: this.qty,
         subtotal: this.subtotal,
         customer_id: this.customer_id,
         payby: this.payby,
         pay: this.pay,
-        due: this.due,
+        due: due,
         vat: this.vats.vat,
         total: total
-      };
+      }; //due:this.due //due_dynamic
+
       axios.post('/api/orderdone/', data).then(function () {
         Notification.success();
 
@@ -55298,24 +55302,14 @@ var render = function() {
               _c("label", [_vm._v("Due")]),
               _vm._v(" "),
               _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.due,
-                    expression: "due"
-                  }
-                ],
                 staticClass: "form-control",
                 attrs: { type: "text", required: "" },
-                domProps: { value: _vm.due },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.due = $event.target.value
-                  }
+                domProps: {
+                  value: (
+                    (_vm.subtotal * _vm.vats.vat) / 100 +
+                    _vm.subtotal -
+                    _vm.pay
+                  ).toFixed(2)
                 }
               }),
               _vm._v(" "),
@@ -78339,8 +78333,8 @@ var routes = [//-------JWT/auth_routes--------
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\DevApps\php74\htdocs\Inventory\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\DevApps\php74\htdocs\Inventory\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\DevApps\php74\htdocs\my_files\Vue Js\Inventory\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\DevApps\php74\htdocs\my_files\Vue Js\Inventory\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

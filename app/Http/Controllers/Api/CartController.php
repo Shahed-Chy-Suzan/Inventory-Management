@@ -26,24 +26,27 @@ class CartController extends Controller
             $data = array();
             $data['pro_id']=$id;
             $data['pro_name']=$product->product_name;
-            $data['pro_quantity']=1;
+            $data['pro_quantity']= 1;
             $data['product_price']=$product->selling_price;
             $data['sub_total']=$product->selling_price;
             DB::table('pos')->insert($data);
         }
         return response()->json('done');
     }
+//----------------------------------------------------------
 
     public function CartProduct()
     {
         $cart=DB::table('pos')->get();
         return response()->json($cart);
     }
+//----------------------------------------------------------
 
     public function removeCart($id){
         DB::table('pos')->where('id',$id)->delete();
         return response('done');
     }
+//----------------------------------------------------------
 
     public function Increment($id)
     {
@@ -57,6 +60,7 @@ class CartController extends Controller
 
         return response('done');
     }
+//----------------------------------------------------------
 
     public function decrement($id)
     {
@@ -70,7 +74,7 @@ class CartController extends Controller
 
         return response('done');
     }
-
+//----------------------------------------------------------
 
     public function Vats()
     {

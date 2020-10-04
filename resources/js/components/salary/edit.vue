@@ -61,7 +61,7 @@
 	               <div class="col-md-6">
 	                <div class="form-label-group">
                       <label for="lastName">Salary</label>
-	                  <input type="text" v-model="form.amount" class="form-control" required="">
+	                  <input type="text" v-model="form.amount" class="form-control" required>
 	                  <small class="text-danger" v-if="errors.amount">{{ errors.amount[0] }}</small>
 	                </div>
 	               </div>
