@@ -133,7 +133,7 @@
         methods:{
             onFileselected(event){          //click korlei ai 'event' er vitor pic er sob details chole asbe
                 let file=event.target.files[0];     //now,File's(name,size,type) available in variable 'file'
-                if (file.size > 1048770) {           //made condition: file will less than 1MB
+                if (file.size > 1048770) {          //made condition: file will less than 1MB(1024*1024=1048576 byte)
                     Notification.image_validation()
                 }else{
                     let reader = new FileReader();       //created new instance
