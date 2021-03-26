@@ -80,8 +80,8 @@
                 return this.employees.filter(employee => {
                     //return employee.phone.match(this.searchTerm)
                     //return employee.name.match(this.searchTerm)
-                    let lowerCase = employee.name.toLowerCase()
-                    return lowerCase.match(this.searchTerm.toLowerCase())
+                    let searchLowerCase = employee.name.toLowerCase()
+                    return searchLowerCase.match(this.searchTerm.toLowerCase())
                 })
             }
         },

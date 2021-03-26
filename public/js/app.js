@@ -3407,8 +3407,8 @@ __webpack_require__.r(__webpack_exports__);
       return this.employees.filter(function (employee) {
         //return employee.phone.match(this.searchTerm)
         //return employee.name.match(this.searchTerm)
-        var lowerCase = employee.name.toLowerCase();
-        return lowerCase.match(_this.searchTerm.toLowerCase());
+        var searchLowerCase = employee.name.toLowerCase();
+        return searchLowerCase.match(_this.searchTerm.toLowerCase());
       });
     }
   },
