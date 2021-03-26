@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <label class="d-inline">Search : </label>      <!-----f----->
-                        <input type="text" v-model="searchTerm" class="form-control d-inline" style="width:200px;" placeholder="Search by phone"><br> <br>
+                        <input type="text" v-model="searchTerm" class="form-control d-inline" style="width:200px;" placeholder="Search by name"><br> <br>
                         <table class="table table-bordered table-striped table-hover table-warning border-primary" id="" width="100%" cellspacing="0">
 
                             <thead>
@@ -41,6 +41,8 @@
                                 <td>{{ supplier.address }}</td>
                                 <td>
                                     <router-link :to="{name: 'edit-supplier', params:{id: supplier.id} }" class="btn btn-sm btn-info">Edit</router-link>
+                                    <!-- <router-link :to="'/edit-category/'+category.id" class="btn btn-warning mr-1">Edit</router-link> --> <!--or, -->
+                                    <!-- <router-link :to="`/edit-category/${category.id}`" class="btn btn-sm btn-primary text-white">Edit</router-link> -->
                                     <a @click="deleteSupplier(supplier.id)" class="btn btn-sm btn-danger text-white">Delete</a>
                                 </td>
                             </tr>
@@ -74,7 +76,10 @@
         computed:{
             filtersearch(){
                 return this.suppliers.filter(supplier => {
-                    return supplier.phone.match(this.searchTerm)
+                    //return supplier.phone.match(this.searchTerm)
+                    return supplier.name.toLowerCase().match(this.searchTerm.toLowerCase())
+                    // let searchLowerCase = supplier.name.toLowerCase()
+                    // return searchLowerCase.match(this.searchTerm.toLowerCase())
                 })
             }
         },

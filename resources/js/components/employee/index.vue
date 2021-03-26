@@ -79,9 +79,9 @@
             filtersearch(){
                 return this.employees.filter(employee => {
                     //return employee.phone.match(this.searchTerm)
-                    //return employee.name.match(this.searchTerm)
-                    let searchLowerCase = employee.name.toLowerCase()
-                    return searchLowerCase.match(this.searchTerm.toLowerCase())
+                    return employee.name.toLowerCase().match(this.searchTerm.toLowerCase())
+                    // let searchLowerCase = employee.name.toLowerCase()
+                    // return searchLowerCase.match(this.searchTerm.toLowerCase())
                 })
             }
         },

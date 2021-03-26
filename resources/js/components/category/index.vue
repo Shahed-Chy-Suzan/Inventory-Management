@@ -33,6 +33,8 @@
                                 <td>{{ category.category_name }}</td>
                                 <td>
                                     <router-link :to="{name: 'edit-category', params:{id: category.id} }" class="btn btn-sm btn-info">Edit</router-link>
+                                    <!-- <router-link :to="'/edit-category/'+category.id" class="btn btn-warning mr-1">Edit</router-link> --> <!--or, -->
+                                    <!-- <router-link :to="`/edit-category/${category.id}`" class="btn btn-sm btn-primary text-white">Edit</router-link> -->
                                     <a @click="deleteCategory(category.id)" class="btn btn-sm btn-danger text-white">Delete</a>
                                 </td>
                             </tr>
@@ -66,7 +68,10 @@
         computed:{
             filtersearch(){
                 return this.categories.filter(category => {
-                    return category.category_name.match(this.searchTerm)
+                    //return category.category_name.match(this.searchTerm)
+                    return category.category_name.toLowerCase().match(this.searchTerm.toLowerCase())
+                    // let searchLowerCase = category.name.toLowerCase()
+                    // return searchLowerCase.match(this.searchTerm.toLowerCase())
                 })
             }
         },

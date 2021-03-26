@@ -2449,6 +2449,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     if (!User.loggedIn()) {
@@ -2471,7 +2473,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       return this.categories.filter(function (category) {
-        return category.category_name.match(_this.searchTerm);
+        //return category.category_name.match(this.searchTerm)
+        return category.category_name.toLowerCase().match(_this.searchTerm.toLowerCase()); // let searchLowerCase = category.name.toLowerCase()
+        // return searchLowerCase.match(this.searchTerm.toLowerCase())
       });
     }
   },
@@ -3406,9 +3410,8 @@ __webpack_require__.r(__webpack_exports__);
 
       return this.employees.filter(function (employee) {
         //return employee.phone.match(this.searchTerm)
-        //return employee.name.match(this.searchTerm)
-        var searchLowerCase = employee.name.toLowerCase();
-        return searchLowerCase.match(_this.searchTerm.toLowerCase());
+        return employee.name.toLowerCase().match(_this.searchTerm.toLowerCase()); // let searchLowerCase = employee.name.toLowerCase()
+        // return searchLowerCase.match(this.searchTerm.toLowerCase())
       });
     }
   },
@@ -6631,6 +6634,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     if (!User.loggedIn()) {
@@ -6653,7 +6658,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       return this.suppliers.filter(function (supplier) {
-        return supplier.phone.match(_this.searchTerm);
+        //return supplier.phone.match(this.searchTerm)
+        return supplier.name.toLowerCase().match(_this.searchTerm.toLowerCase()); // let searchLowerCase = supplier.name.toLowerCase()
+        // return searchLowerCase.match(this.searchTerm.toLowerCase())
       });
     }
   },
@@ -59433,7 +59440,7 @@ var render = function() {
                 ],
                 staticClass: "form-control d-inline",
                 staticStyle: { width: "200px" },
-                attrs: { type: "text", placeholder: "Search by phone" },
+                attrs: { type: "text", placeholder: "Search by name" },
                 domProps: { value: _vm.searchTerm },
                 on: {
                   input: function($event) {
