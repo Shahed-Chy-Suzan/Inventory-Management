@@ -4,6 +4,7 @@ let Login = require('./components/auth/login.vue').default;
 let Register = require('./components/auth/register.vue').default;
 let forgetPass = require('./components/auth/forget.vue').default;
 let logout = require('./components/auth/logout.vue').default;
+//--or--import Register from './components/auth/register.vue' //--or--
 //-------Home/Dashboard_Components----------
 let home = require('./components/home.vue').default;
 //--------Employee_Components---------------

@@ -52,7 +52,7 @@
     export default {
         created(){                  //--will load created() before others
             if(User.loggedIn()){
-                this.$router.push({name : 'home'})
+                this.$router.push({name : 'home'})      // or, //this.$router.push('/home')
             }
         },
 

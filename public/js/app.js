@@ -2024,7 +2024,7 @@ __webpack_require__.r(__webpack_exports__);
     if (User.loggedIn()) {
       this.$router.push({
         name: 'home'
-      });
+      }); // or, //this.$router.push('/home')
     }
   },
   data: function data() {
@@ -2175,7 +2175,7 @@ __webpack_require__.r(__webpack_exports__);
     if (User.loggedIn()) {
       this.$router.push({
         name: 'home'
-      });
+      }); // or, //this.$router.push('/home')
     }
   },
   data: function data() {
@@ -2202,7 +2202,7 @@ __webpack_require__.r(__webpack_exports__);
           title: 'Signed in Successfully'
         });
 
-        _this.$router.push('/home'); // or, this.$router.push({name:'home}) //
+        _this.$router.push('/home'); // or, this.$router.push({name:'home})
 
       }) // .catch(error => console.log(error.response.data))
       ["catch"](function (error) {
@@ -3089,7 +3089,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (file.size > 1048770) {
         //made condition: file will less than 1MB
-        Notification.image_validation();
+        Notification.image_validation(); //used 'Noti'
       } else {
         var reader = new FileReader(); //created new instance
 
@@ -3279,7 +3279,7 @@ __webpack_require__.r(__webpack_exports__);
       var file = event.target.files[0]; //now,File's(name,size,type) available in variable 'file'
 
       if (file.size > 1048770) {
-        //made condition: file will less than 1MB
+        //made condition: file will less than 1MB(1024*1024=1048576 byte)
         Notification.image_validation();
       } else {
         var reader = new FileReader(); //created new instance
@@ -3379,6 +3379,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     if (!User.loggedIn()) {
@@ -3404,7 +3406,9 @@ __webpack_require__.r(__webpack_exports__);
 
       return this.employees.filter(function (employee) {
         //return employee.phone.match(this.searchTerm)
-        return employee.name.match(_this.searchTerm);
+        //return employee.name.match(this.searchTerm)
+        var lowerCase = employee.name.toLowerCase();
+        return lowerCase.match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -52906,7 +52910,7 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("li", { staticClass: "breadcrumb-item active" }, [
-        _vm._v("Employee / Add")
+        _vm._v("DigitalLab")
       ])
     ])
   }
@@ -54172,11 +54176,11 @@ var staticRenderFns = [
       [
         _c(
           "a",
-          { staticClass: " text-white stretched-link", attrs: { href: "#" } },
+          { staticClass: "text-white stretched-link", attrs: { href: "#" } },
           [_vm._v("Today Sell")]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: " text-white" }, [
+        _c("div", { staticClass: "text-white" }, [
           _c("i", { staticClass: "fas fa-angle-right" })
         ])
       ]
@@ -78085,7 +78089,8 @@ var Register = __webpack_require__(/*! ./components/auth/register.vue */ "./reso
 
 var forgetPass = __webpack_require__(/*! ./components/auth/forget.vue */ "./resources/js/components/auth/forget.vue")["default"];
 
-var logout = __webpack_require__(/*! ./components/auth/logout.vue */ "./resources/js/components/auth/logout.vue")["default"]; //-------Home/Dashboard_Components----------
+var logout = __webpack_require__(/*! ./components/auth/logout.vue */ "./resources/js/components/auth/logout.vue")["default"]; //--or--import Register from './components/auth/register.vue' //--or--
+//-------Home/Dashboard_Components----------
 
 
 var home = __webpack_require__(/*! ./components/home.vue */ "./resources/js/components/home.vue")["default"]; //--------Employee_Components---------------

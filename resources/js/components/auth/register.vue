@@ -68,7 +68,7 @@
     export default {
         created(){
             if (User.loggedIn()) {
-                this.$router.push({name:'home'})
+                this.$router.push({name:'home'})   // or, //this.$router.push('/home')
             }
         },
         data(){
@@ -93,7 +93,7 @@
                         icon: 'success',
                         title: 'Signed in Successfully'
                     })
-                    this.$router.push('/home') // or, this.$router.push({name:'home}) //
+                    this.$router.push('/home')    // or, this.$router.push({name:'home})
                 })
                 // .catch(error => console.log(error.response.data))
                 .catch(error => this.errors = error.response.data.errors)

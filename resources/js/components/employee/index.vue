@@ -41,6 +41,8 @@
                                 <td>{{ employee.joining_date }}</td>
                                 <td>
                                     <router-link :to="{name: 'edit-employee', params:{id: employee.id} }" class="btn btn-sm btn-info">Edit</router-link>    <!----it will dynamic thats why applied bind(:to)---->
+                                    <!-- <router-link :to="'/edit-category/'+category.id" class="btn btn-warning mr-1">Edit</router-link> --> <!--or, -->
+                                    <!-- <router-link :to="`/edit-category/${category.id}`" class="btn btn-sm btn-primary text-white">Edit</router-link> -->
                                     <a @click="deleteEmployee(employee.id)" class="btn btn-sm btn-danger text-white">Delete</a>
                                 </td>
                             </tr>
@@ -77,7 +79,9 @@
             filtersearch(){
                 return this.employees.filter(employee => {
                     //return employee.phone.match(this.searchTerm)
-                    return employee.name.match(this.searchTerm)
+                    //return employee.name.match(this.searchTerm)
+                    let lowerCase = employee.name.toLowerCase()
+                    return lowerCase.match(this.searchTerm.toLowerCase())
                 })
             }
         },

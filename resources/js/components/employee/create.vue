@@ -5,7 +5,7 @@
 			<li class="breadcrumb-item">
 				<a href="#">Dashboard</a>
 			</li>
-			<li class="breadcrumb-item active">Employee / Add</li>
+			<li class="breadcrumb-item active">DigitalLab</li>
 		</ol>
 
 		<!-- Icon Cards-->
@@ -131,7 +131,7 @@
 				//console.log(event)
 				let file=event.target.files[0];      //now,File's(name,size,type) available in variable 'file'
 				if (file.size > 1048770) {           //made condition: file will less than 1MB
-				    Notification.image_validation()
+				    Notification.image_validation()     //used 'Noti'
 				}else{
                     let reader = new FileReader();     //created new instance
                     reader.onload = event => {

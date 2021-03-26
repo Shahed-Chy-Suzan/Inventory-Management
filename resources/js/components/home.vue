@@ -11,8 +11,8 @@
         <div class="card bg-primary text-white mb-4">
             <div class="card-body">{{ todaysell }} Taka</div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class=" text-white stretched-link" href="#">Today Sell</a>
-                <div class=" text-white"><i class="fas fa-angle-right"></i></div>
+                <a class="text-white stretched-link" href="#">Today Sell</a>
+                <div class="text-white"><i class="fas fa-angle-right"></i></div>
             </div>
         </div>
     </div>
@@ -93,9 +93,9 @@
 <script>
     export default {
         created(){
-        if (!User.loggedIn()) {
-            this.$router.push({name : '/'})
-        }
+            if (!User.loggedIn()) {
+                this.$router.push({name : '/'})
+            }
         },
         mounted(){
             this.TodaySell();

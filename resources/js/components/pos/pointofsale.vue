@@ -80,7 +80,7 @@
                         <label>Due</label>                              <!---------"due" dynamic kora hoyeche------------>
                         <!-- <input type="text" class="form-control" required v-model="due"> -->
                         <input type="text" class="form-control" required :value="((subtotal*vats.vat /100 +subtotal) - pay).toFixed(2)">
-                        
+
                         <label>Pay By</label>
                         <select class="form-control" v-model="payby">
                             <option value="HandCash">Hand Cash</option>
