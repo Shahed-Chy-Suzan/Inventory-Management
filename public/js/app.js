@@ -52302,7 +52302,7 @@ var render = function() {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("img", {
                       staticStyle: { height: "40px", width: "40px" },
-                      attrs: { src: _vm.form.photo }
+                      attrs: { src: "/" + _vm.form.photo }
                     })
                   ])
                 ])
@@ -53299,7 +53299,7 @@ var render = function() {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("img", {
                       staticStyle: { height: "40px", width: "40px" },
-                      attrs: { src: _vm.form.photo }
+                      attrs: { src: "/" + _vm.form.photo }
                     })
                   ])
                 ])
@@ -57237,7 +57237,7 @@ var render = function() {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("img", {
                       staticStyle: { height: "40px", width: "40px" },
-                      attrs: { src: _vm.form.image }
+                      attrs: { src: "/" + _vm.form.image }
                     })
                   ])
                 ])
@@ -59365,7 +59365,7 @@ var render = function() {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("img", {
                       staticStyle: { height: "40px", width: "40px" },
-                      attrs: { src: _vm.form.photo }
+                      attrs: { src: "/" + _vm.form.photo }
                     })
                   ])
                 ])

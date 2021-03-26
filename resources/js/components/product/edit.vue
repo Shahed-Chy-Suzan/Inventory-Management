@@ -109,7 +109,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <img :src="form.image" style="height:40px; width: 40px;">
+                                    <img :src="'/'+form.image" style="height:40px; width: 40px;">
                                 </div>
                             </div>
                         </div>
