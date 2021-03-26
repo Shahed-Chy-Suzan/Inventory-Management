@@ -2880,6 +2880,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     if (!User.loggedIn()) {
@@ -2902,7 +2904,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       return this.customers.filter(function (customer) {
-        return customer.name.match(_this.searchTerm);
+        //return customer.name.match(this.searchTerm)
+        return customer.name.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -3715,6 +3718,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     if (!User.loggedIn()) {
@@ -3737,7 +3742,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       return this.expenses.filter(function (expense) {
-        return expense.expense_date.match(_this.searchTerm);
+        // return expense.expense_date.match(this.searchTerm)
+        return expense.expense_date.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -4016,6 +4022,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     if (!User.loggedIn()) {
@@ -4038,7 +4046,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       return this.orders.filter(function (order) {
-        return order.name.match(_this.searchTerm);
+        //return order.name.match(this.searchTerm)
+        return order.name.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -4732,7 +4741,8 @@ __webpack_require__.r(__webpack_exports__);
 
       //----------------1-------
       return this.products.filter(function (product) {
-        return product.product_name.match(_this2.searchTerm);
+        //return product.product_name.match(this.searchTerm)
+        return product.product_name.toLowerCase().match(_this2.searchTerm.toLowerCase());
       });
     },
     getfiltersearch: function getfiltersearch() {
@@ -4740,7 +4750,8 @@ __webpack_require__.r(__webpack_exports__);
 
       //-----------------1-------
       return this.getproducts.filter(function (getproduct) {
-        return getproduct.product_name.match(_this3.getsearchTerm);
+        //return getproduct.product_name.match(this.getsearchTerm)
+        return getproduct.product_name.toLowerCase().match(_this3.searchTerm.toLowerCase());
       });
     },
     qty: function qty() {
@@ -5497,6 +5508,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     if (!User.loggedIn()) {
@@ -5519,7 +5532,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       return this.products.filter(function (product) {
-        return product.product_name.match(_this.searchTerm);
+        //return product.product_name.match(this.searchTerm)
+        return product.product_name.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -5628,6 +5642,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     if (!User.loggedIn()) {
@@ -5650,7 +5666,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       return this.products.filter(function (product) {
-        return product.product_name.match(_this.searchTerm);
+        // return product.product_name.match(this.searchTerm)
+        return product.product_name.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -5730,6 +5747,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     if (!User.loggedIn()) {
@@ -5752,7 +5771,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       return this.employees.filter(function (employee) {
-        return employee.name.match(_this.searchTerm);
+        //  return employee.name.match(this.searchTerm)
+        return employee.name.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -6098,6 +6118,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     if (!User.loggedIn()) {
@@ -6120,7 +6142,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       return this.salaries.filter(function (salary) {
-        return salary.salary_month.match(_this.searchTerm);
+        //  return salary.salary_month.match(this.searchTerm)
+        return salary.salary_month.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -6221,7 +6244,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       return this.salaries.filter(function (salary) {
-        return salary.name.match(_this.searchTerm);
+        // return salary.name.match(this.searchTerm)
+        return salary.name.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },

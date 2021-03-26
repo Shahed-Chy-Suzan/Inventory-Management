@@ -40,6 +40,8 @@
                       <td>{{ order.payby }}</td>
                       <td>
                         <router-link :to="{name: 'view-order', params:{id: order.id} }" class="btn btn-sm btn-info">View</router-link>
+                        <!-- <router-link :to="'/pay-salary/'+employee.id" class="btn btn-sm btn-info">Pay Salary</router-link> --> <!--or, -->
+                        <!-- <router-link :to="`/pay-salary/${employee.id}`" class="btn btn-sm btn-info">Pay Salary</router-link> -->
                       </td>
                     </tr>
                   </tbody>
@@ -72,7 +74,8 @@
         computed:{
             filtersearch(){
                 return this.orders.filter(order => {
-                    return order.name.match(this.searchTerm)
+                    //return order.name.match(this.searchTerm)
+                    return order.name.toLowerCase().match(this.searchTerm.toLowerCase())
                 })
             }
         },

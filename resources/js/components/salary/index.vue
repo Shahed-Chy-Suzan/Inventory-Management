@@ -32,6 +32,8 @@
                       <td>{{ salary.salary_month }}</td>
                       <td>
                         <router-link :to="{name: 'view-salary', params:{id: salary.salary_month} }" class="btn btn-sm btn-info">View Salary</router-link>
+                        <!-- <router-link :to="'/pay-salary/'+employee.id" class="btn btn-sm btn-info">Pay Salary</router-link> --> <!--or, -->
+                        <!-- <router-link :to="`/pay-salary/${employee.id}`" class="btn btn-sm btn-info">Pay Salary</router-link> -->
                       </td>
                     </tr>
                   </tbody>
@@ -64,7 +66,8 @@
        computed:{
          filtersearch(){
           return this.salaries.filter(salary => {
-             return salary.salary_month.match(this.searchTerm)
+                //  return salary.salary_month.match(this.searchTerm)
+                return salary.salary_month.toLowerCase().match(this.searchTerm.toLowerCase())
            })
          }
        },

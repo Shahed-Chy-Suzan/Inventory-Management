@@ -195,7 +195,7 @@
                                             <div class="card-body">
                                                 <small class="card-title">{{ product.product_name }}</small><br>
                                                 <span class="badge badge-success" v-if="product.product_quantity >= 1"> Availble ({{ product.product_quantity }}) </span>
-                                                <span class="badge badge-danger" v-else="">Stock Out</span>
+                                                <span class="badge badge-danger" v-else>Stock Out</span>
                                                 <span class="text-primary d-block m-0 p-0 small"> BDT: {{product.selling_price}}</span>
                                             </div>
                                         </div>
@@ -214,7 +214,7 @@
                                             <div class="card-body">
                                                 <small class="card-title">{{ getproduct.product_name }}</small> <br>
                                                 <span class="badge badge-success" v-if="getproduct.product_quantity >= 1"> Availble ({{ getproduct.product_quantity }}) </span>
-                                                <span class="badge badge-danger" v-else="">Stock Out</span>
+                                                <span class="badge badge-danger" v-else>Stock Out</span>
                                                 <span class="text-primary d-block m-0 p-0 small"> BDT: {{getproduct.selling_price}}</span>
                                             </div>
                                         </div>
@@ -280,12 +280,14 @@
         computed:{
             filtersearch(){                          //----------------1-------
                 return this.products.filter(product => {
-                    return product.product_name.match(this.searchTerm)
+                    //return product.product_name.match(this.searchTerm)
+                    return product.product_name.toLowerCase().match(this.searchTerm.toLowerCase())
                 })
             },
             getfiltersearch(){                       //-----------------1-------
                 return this.getproducts.filter(getproduct => {
-                    return getproduct.product_name.match(this.getsearchTerm)
+                    //return getproduct.product_name.match(this.getsearchTerm)
+                    return getproduct.product_name.toLowerCase().match(this.searchTerm.toLowerCase())
                 })
             },
             qty(){

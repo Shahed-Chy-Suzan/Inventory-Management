@@ -38,6 +38,8 @@
                       <td>{{ employee.salary }}</td>
                       <td>
                         <router-link :to="{name: 'pay-salary', params:{id: employee.id} }" class="btn btn-sm btn-info">Pay Salary</router-link>
+                        <!-- <router-link :to="'/pay-salary/'+employee.id" class="btn btn-sm btn-info">Pay Salary</router-link> --> <!--or, -->
+                        <!-- <router-link :to="`/pay-salary/${employee.id}`" class="btn btn-sm btn-info">Pay Salary</router-link> -->
                       </td>
                     </tr>
                   </tbody>
@@ -70,7 +72,8 @@
        computed:{
          filtersearch(){
           return this.employees.filter(employee => {
-             return employee.name.match(this.searchTerm)
+            //  return employee.name.match(this.searchTerm)
+            return employee.name.toLowerCase().match(this.searchTerm.toLowerCase())
            })
          }
        },

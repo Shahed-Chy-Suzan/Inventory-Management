@@ -38,6 +38,8 @@
                       <td>{{ customer.address }}</td>
                       <td>
                         <router-link :to="{name: 'edit-Customer', params:{id: customer.id} }" class="btn btn-sm btn-info">Edit</router-link>
+                        <!-- <router-link :to="'/edit-category/'+category.id" class="btn btn-warning mr-1">Edit</router-link> --> <!--or-->
+                        <!-- <router-link :to="`/edit-category/${category.id}`" class="btn btn-sm btn-primary text-white">Edit</router-link> -->
                         <a @click="deleteCustomer(customer.id)" class="btn btn-sm btn-danger text-white">Delete</a>
                       </td>
                     </tr>
@@ -71,7 +73,8 @@
        computed:{
          filtersearch(){
           return this.customers.filter(customer => {
-             return customer.name.match(this.searchTerm)
+            //return customer.name.match(this.searchTerm)
+            return customer.name.toLowerCase().match(this.searchTerm.toLowerCase())
            })
          }
        },
