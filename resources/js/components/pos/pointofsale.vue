@@ -165,6 +165,9 @@
 
 
 
+
+
+
 <!--------------Right_Side_"Product"----------1st_task----------1----->
             <div class="card col-lg-7 border-primary">
                 <div class="card-header text-primary">
@@ -189,7 +192,18 @@
                             <input type="text" v-model="searchTerm" class="form-control" placeholder="Search here..."><br>
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-6" v-for="product in filtersearch" :key="product.id">
-                                    <button class="btn btn-sm" @click.prevent="AddToCart(product.id)">  <!--------3------->
+                                    <button v-if="product.product_quantity >= 1" class="btn btn-sm" @click.prevent="AddToCart(product.id)">  <!--------3------->
+                                        <div class="card" style="width: 9rem; height: 180px;">
+                                            <img :src="product.image" class="card-img-top" style="height: 100px; width: 100px;">
+                                            <div class="card-body">
+                                                <small class="card-title">{{ product.product_name }}</small><br>
+                                                <span class="badge badge-success" v-if="product.product_quantity >= 1"> Availble ({{ product.product_quantity }}) </span>
+                                                <span class="badge badge-danger" v-else>Stock Out</span>
+                                                <span class="text-primary d-block m-0 p-0 small"> BDT: {{product.selling_price}}</span>
+                                            </div>
+                                        </div>
+                                    </button>
+                                    <button v-else disabled class="btn btn-sm" @click.prevent="AddToCart(product.id)">  <!--------3------->
                                         <div class="card" style="width: 9rem; height: 180px;">
                                             <img :src="product.image" class="card-img-top" style="height: 100px; width: 100px;">
                                             <div class="card-body">
@@ -208,7 +222,18 @@
                             <input type="text" v-model="getsearchTerm" class="form-control" placeholder="Search here..."><br>
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-6" v-for="getproduct in getfiltersearch" :key="getproduct.id">
-                                    <button class="btn btn-sm" @click.prevent="AddToCart(getproduct.id)">
+                                    <button v-if="getproduct.product_quantity >= 1" class="btn btn-sm" @click.prevent="AddToCart(getproduct.id)">
+                                        <div class="card" style="width: 9rem; height: 180px;">
+                                            <img :src="getproduct.image" class="card-img-top" style="height: 100px; width: 100px;">
+                                            <div class="card-body">
+                                                <small class="card-title">{{ getproduct.product_name }}</small> <br>
+                                                <span class="badge badge-success" v-if="getproduct.product_quantity >= 1"> Availble ({{ getproduct.product_quantity }}) </span>
+                                                <span class="badge badge-danger" v-else>Stock Out</span>
+                                                <span class="text-primary d-block m-0 p-0 small"> BDT: {{getproduct.selling_price}}</span>
+                                            </div>
+                                        </div>
+                                    </button>
+                                    <button v-else disabled class="btn btn-sm" @click.prevent="AddToCart(getproduct.id)">
                                         <div class="card" style="width: 9rem; height: 180px;">
                                             <img :src="getproduct.image" class="card-img-top" style="height: 100px; width: 100px;">
                                             <div class="card-body">
@@ -272,7 +297,7 @@
                 searchTerm:'',     //---------1---
                 getsearchTerm:'',  //---------1---
                 customers:'',           //-------2---
-                errors:'',         //---------1---
+                errors:'',         //---------1---//Controller থেকে ডাটা তুলে এনে এই cards Array মধ্যে রাখবে ।
                 cards:[],                   //--------3--
                 vats:''
             }
@@ -293,7 +318,7 @@
             qty(){
                 let sum=0;
                 for(let i=0; i < this.cards.length; i++ ){
-                    sum += (parseFloat(this.cards[i].pro_quantity));
+                    sum += (parseFloat(this.cards[i].pro_quantity));    //The parseFloat() function parses a string and returns a floating point number. That means a number of string convert into floating number.
                 }
                 return sum;
             },
@@ -314,26 +339,26 @@
                         Notification.cart_success()
                     })
             },
-            cartProduct(){
+            cartProduct(){                          //selected product show in card
                 axios.get('/api/cart/product')
                     .then(({data}) => (this.cards = data))
                     .catch()
             },
-            removeItem(id){
+            removeItem(id){                         //id = Pos's id
                 axios.get('/api/remove/cart/'+id)
                     .then(() => {
                         Reload.$emit('AfterAdd');
                         Notification.success()
                     })
             },
-            increment(id){              //------------------4----
+            increment(id){      //id = Pos's id        //------------------4----
                 axios.get('/api/increment/'+id)
                     .then(() => {
                         Reload.$emit('AfterAdd');
                         Notification.success()
                     })
             },
-            decrement(id){
+            decrement(id){      //id = Pos's id
                 axios.get('/api/decrement/'+id)
                     .then(() => {
                         Reload.$emit('AfterAdd');
@@ -397,7 +422,7 @@
                 axios.post('/api/Customer/',this.form)
                     .then(() => {
                         $('#closeModal').click();
-                        Reload.$emit('customerReload');
+                        Reload.$emit('customerReload'); //first global declar in app.js, then goto created() on above
                         Notification.success()
                         // this.customers = this.customers.filter(customer =>{   //--Or-/use Reload--
                         //     return customer.id !=id
