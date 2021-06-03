@@ -4753,9 +4753,9 @@ __webpack_require__.r(__webpack_exports__);
       customers: '',
       //-------2---
       errors: '',
-      //---------1---//Controller থেকে ডাটা তুলে এনে এই cards Array মধ্যে রাখবে ।
+      //---------1---
       cards: [],
-      //--------3--
+      //--------3--//Controller থেকে ডাটা তুলে এনে এই cards Array মধ্যে রাখবে।
       vats: ''
     };
   },
@@ -4775,7 +4775,7 @@ __webpack_require__.r(__webpack_exports__);
       //-----------------1-------
       return this.getproducts.filter(function (getproduct) {
         //return getproduct.product_name.match(this.getsearchTerm)
-        return getproduct.product_name.toLowerCase().match(_this3.searchTerm.toLowerCase());
+        return getproduct.product_name.toLowerCase().match(_this3.getsearchTerm.toLowerCase());
       });
     },
     qty: function qty() {
@@ -52969,7 +52969,7 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("li", { staticClass: "breadcrumb-item active" }, [
-        _vm._v("DigitalLab")
+        _vm._v("Employee / Add")
       ])
     ])
   }

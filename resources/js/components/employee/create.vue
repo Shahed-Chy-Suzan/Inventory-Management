@@ -5,7 +5,7 @@
 			<li class="breadcrumb-item">
 				<a href="#">Dashboard</a>
 			</li>
-			<li class="breadcrumb-item active">DigitalLab</li>
+			<li class="breadcrumb-item active">Employee / Add</li>
 		</ol>
 
 		<!-- Icon Cards-->

@@ -297,8 +297,8 @@
                 searchTerm:'',     //---------1---
                 getsearchTerm:'',  //---------1---
                 customers:'',           //-------2---
-                errors:'',         //---------1---//Controller থেকে ডাটা তুলে এনে এই cards Array মধ্যে রাখবে ।
-                cards:[],                   //--------3--
+                errors:'',         //---------1---
+                cards:[],                   //--------3--//Controller থেকে ডাটা তুলে এনে এই cards Array মধ্যে রাখবে।
                 vats:''
             }
         },
@@ -312,7 +312,7 @@
             getfiltersearch(){                       //-----------------1-------
                 return this.getproducts.filter(getproduct => {
                     //return getproduct.product_name.match(this.getsearchTerm)
-                    return getproduct.product_name.toLowerCase().match(this.searchTerm.toLowerCase())
+                    return getproduct.product_name.toLowerCase().match(this.getsearchTerm.toLowerCase())
                 })
             },
             qty(){
